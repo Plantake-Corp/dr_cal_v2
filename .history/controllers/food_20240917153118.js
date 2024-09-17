@@ -87,7 +87,6 @@ const deleteById = asyncHandler(async (req, res) => {
 // @required params {id}
 // @return Food
 const updateById = asyncHandler(async (req, res) => {
-    
     const id = req.params.id;
 
     if (!id){
@@ -128,16 +127,17 @@ const updateById = asyncHandler(async (req, res) => {
 });
 
 // @desc incrementPopularity by id
-// @route POST /foods/{id}
+// @route PUT /foods/{id}
 // @access private
-// @required body {id: ID, popularity: NUMBER_VALUE}
+// @required params {id}
+// @required body {counter: NUMBER_VALUE}
 // @return Food
-const incrementPopularityById = asyncHandler(async (req, res) => {
+const incrementCounterById = asyncHandler(async (req, res) => {
     const id = req.body.id;
-    const counter = req.body.counter;
-
-    if (!id || !counter){
-        return res.status(400).json({error: "Id and counter are required!"});
+    const popularity = req.body.popularity;
+    
+    if (!id || !popularity){
+        return res.status(400).json({error: "Id and popularity are required!"});
     }
 
     const fields = {
@@ -145,7 +145,7 @@ const incrementPopularityById = asyncHandler(async (req, res) => {
     };
 
     const updates = {
-        $inc: {counter: counter},
+        $inc: {popularity: popularity},
     };
 
     const options = {
@@ -252,7 +252,6 @@ const getByQuery = asyncHandler(async (req, res) => {
 module.exports = {
     insert,
     inserts,
-    incrementPopularityById,
     deleteById,
     updateById,
     getById,

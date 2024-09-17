@@ -128,7 +128,7 @@ const updateById = asyncHandler(async (req, res) => {
 });
 
 // @desc incrementPopularity by id
-// @route POST /foods/{id}
+// @route PUT /foods/{id}
 // @access private
 // @required body {id: ID, popularity: NUMBER_VALUE}
 // @return Food

@@ -11,22 +11,10 @@ const schema = mongoose.Schema({
     brand: String,
     photo: String,
     
-    calories: {
-        type: Number,
-        default: 0,
-    },
-    carbs: {
-        type: Number,
-        default: 0,
-    },
-    fats: {
-        type: Number,
-        default: 0,
-    },
-    proteins: {
-        type: Number,
-        default: 0,
-    },
+    calories: Number,
+    carbs: Number,
+    fats: Number,
+    proteins: Number,
     counter: {
         type: Number,
         default: 0,

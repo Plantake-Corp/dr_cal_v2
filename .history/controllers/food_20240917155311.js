@@ -128,7 +128,7 @@ const updateById = asyncHandler(async (req, res) => {
 });
 
 // @desc incrementPopularity by id
-// @route POST /foods/{id}
+// @route PUT /foods/{id}
 // @access private
 // @required body {id: ID, popularity: NUMBER_VALUE}
 // @return Food
@@ -154,7 +154,7 @@ const incrementPopularityById = asyncHandler(async (req, res) => {
     };
 
     try {
-        const response = await Food.findByIdAndUpdate(fields, updates, options);
+        const response = await Food.findByIdAndUpdate(id, updates, options);
 
         if (!response){
             return res.status(404).json({error: "Not Found!"});

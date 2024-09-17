@@ -27,7 +27,7 @@ const schema = mongoose.Schema({
         type: Number,
         default: 0,
     },
-    counter: {
+    popularity: {
         type: Number,
         default: 0,
     }
@@ -46,7 +46,7 @@ schema.methods.toJson = function() {
         carbs: this.carbs,
         fats: this.fats,
         proteins: this.proteins,
-        counter: this.counter,
+        popularity: this.popularity,
     }
 };
 
