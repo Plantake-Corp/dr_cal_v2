@@ -12,7 +12,7 @@ router.post("/all", inserts);
 
 router.put("/:id", updateById);
 
-router.get("/increment", incrementPopularityById);
+router.put("/increment", incrementPopularityById);
 
 router.delete("/:id", deleteById);
 
