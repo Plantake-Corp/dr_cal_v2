@@ -240,10 +240,12 @@ const getByQuery = asyncHandler(async (req, res) => {
         } else {
             results = await Food.find().limit(limit);
         }
-    
-        let data = results.filter(e => e.calories > 0);
 
-        res.status(200).json({data: data});
+        console.log(results);
+        
+        let data = results.filter(item => item.calories > 0);
+    
+        res.status(200).json({data: results});
 
     } catch (error) {
         res.status(500).json({error});

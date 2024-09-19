@@ -21,8 +21,6 @@ const schema = mongoose.Schema({
     }
 });
 
-schema.plugin(validator);
-
 schema.methods.toJson = function() {
     return {
         id: this._id,
