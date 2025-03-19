@@ -1,9 +1,12 @@
-const mongoose = require('mongoose');
-const validator = require('mongoose-unique-validator');
+import { Schema, model } from 'mongoose';
+import validator from 'mongoose-unique-validator';
 
-const schema = mongoose.Schema({
-    _id: String,
-    code: String,
+const schema = Schema({
+    code: {
+        type: String,        
+        required: true,    
+        unique: true,
+    },
     name: String,
     brand: String,
     photo: String,
@@ -11,7 +14,11 @@ const schema = mongoose.Schema({
     calories: Number,
     carbs: Number,
     fats: Number,
-    proteins: Number
+    proteins: Number,
+    counter: {
+        type: Number,
+        default: 0,
+    }
 });
 
 schema.plugin(validator);
@@ -27,7 +34,8 @@ schema.methods.toJson = function() {
         carbs: this.carbs,
         fats: this.fats,
         proteins: this.proteins,
+        counter: this.counter,
     }
 };
 
-module.exports = mongoose.model('Food', schema);
+export default model('Food', schema);

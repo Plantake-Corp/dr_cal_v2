@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-const validator = require('mongoose-unique-validator');
+import { Schema, model } from 'mongoose';
+import validator from 'mongoose-unique-validator';
 
-const schema = mongoose.Schema({
+const schema = Schema({
     code: {
         type: String,        
         required: true,    
@@ -38,4 +38,4 @@ schema.methods.toJson = function() {
     }
 };
 
-module.exports = mongoose.model('Food', schema);
+export default model('Food', schema);

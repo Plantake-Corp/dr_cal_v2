@@ -2,6 +2,7 @@
   "name": "dr_cal_v2",
   "version": "1.0.0",
   "main": "index.js",
+  "module": "CommonJS",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon api/index.js"
