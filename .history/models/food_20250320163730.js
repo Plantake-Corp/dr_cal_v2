@@ -50,8 +50,8 @@ const foodItemSchema = new Schema({
   nutrients: { type: nutrientsSchema, required: false },
   revisionId: {
     type: String,
-    required: [true, 'revisionId is required'],
-    unique: true,  
+    required: [true, 'Food code is required'],
+    unique: true,  // Ensures unique constraint
 },
   servings: { type: [defaultServingSchema], required: false },
   tags: { type: [tagSchema], required: false }
