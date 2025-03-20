@@ -10,9 +10,9 @@ const insert = asyncHandler(async (req, res) => {
     
     const body = req.body;
 
-    if (!body || !body.revisionId) {
-        return res.status(400).json({message: "revisionId is required"});
-    }
+    // if (!body || !body.name || !body.code) {
+    //     return res.status(400).json({message: "Name and code fields are required"});
+    // }
 
     try {
         const response = await Food.create(body);
@@ -215,6 +215,16 @@ const getByQuery = asyncHandler(async (req, res) => {
                           autocomplete: {
                             query: search,
                             path: "name", 
+                            fuzzy: {
+                              maxEdits: 2,
+                              prefixLength: 2
+                            }
+                          }
+                        },
+                        {
+                          autocomplete: {
+                            query: search,
+                            path: "brand", 
                             fuzzy: {
                               maxEdits: 2,
                               prefixLength: 2
